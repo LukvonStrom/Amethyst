@@ -7,6 +7,7 @@
     "debug": "registry:dt/debug#0.0.0+20160317120654",
     "dotenv": "registry:dt/dotenv#2.0.0+20160327131627",
     "express": "registry:dt/express#4.0.0+20160708185218",
+    "express-handlebars": "registry:dt/express-handlebars#0.0.0+20160510002910",
     "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20160715232503",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
     "mime": "registry:dt/mime#0.0.0+20160316155526",
