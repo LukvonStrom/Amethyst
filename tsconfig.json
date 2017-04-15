@@ -6,7 +6,9 @@
         "removeComments": false,
         "preserveConstEnums": true,
         "outDir": "dist",
-        "sourceMap": true
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
     },
     "files": [
         "typings/index.d.ts",
