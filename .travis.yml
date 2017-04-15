@@ -7,12 +7,16 @@ install: npm install
 before_script: gulp lint
 script: gulp test
 before_deploy: gulp package
+notifications:
+  email:
+    on_success: never
+    on_failure: always
 deploy:
   provider: releases
   file: tmp/release.tar.gz
   skip_cleanup: true
   on:
-    repo: lukvonstrom/Amethyst
+    repo: LukvonStrom/Amethyst
     tags: true
     all_branches: true
     node: '6'

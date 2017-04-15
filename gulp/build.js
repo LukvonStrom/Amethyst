@@ -41,13 +41,20 @@ gulp.task('lint', 'Runs a typescript linter on the application code', () =>
     .pipe($.tslint.report())
 );
 
+gulp.task('todo', false, function() {
+  gulp.src(['src/**/*.ts', 'src/**/**/*.handlebars', 'src/**/*.handlebars'])
+    .pipe($.todo())
+    .pipe(gulp.dest('./'));
+});
+
+
 /**
  * Compiles typescript app into js
  */
 gulp.task('compile', false, () => {
 
   var tsResult = gulp.src(tsConfig.files)
-      .pipe($.typescript(tsProject, undefined, $.typescript.reporter.longReporter()));
+    .pipe(tsProject($.typescript.reporter.longReporter()));
 
   return tsResult.js
     .pipe(gulp.dest('dist'));
@@ -60,5 +67,10 @@ gulp.task('build', 'Builds the server app (compiles & copies)', (callback) =>
   $.runSequence('clean',
               ['compile'],
               'copyNonTs',
+              'todo',
               callback)
 );
+
+
+
+
