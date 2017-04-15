@@ -12,7 +12,6 @@
     },
     "files": [
         "typings/index.d.ts",
-        "src/**/*.ts",
-        "gulp/**/*.ts"
+        "src/**/*.ts"
     ]
 }

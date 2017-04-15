@@ -7,7 +7,7 @@
 import { Request, Response } from 'express';
 
 /**
- * Root controller that provides a JSOn message with a slogan as default page
+ * Root controller that provides a JSON message with a slogan as default page
  */
 module RootController {
     'use strict';

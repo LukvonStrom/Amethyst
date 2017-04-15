@@ -3,25 +3,34 @@
  * This file is part of the Amethyst Project. Modification is on your own risk.
  *
  */
- 'use strict';
-
 // Include dependencies
+'use strict';
+
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as favicon from 'serve-favicon';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as exphbs from 'express-handlebars';
+import * as express_session from 'express-session';
+import 'reflect-metadata';
+import * as passport from 'passport';
 
 // Modular Route definitions
 import * as rootRoute from './routes/root';
 
 // Error handler service
 import { development as DevelopmentErrorHandler, production as ProductionErrorHandler } from './services/errorHandler';
+import * as authService from './services/AuthService';
+
 
 // Main app
 const app = express();
 
+const AuthService = authService;
+
+
+// TODO: Initialize Passport
 // view engine setup
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -31,6 +40,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express_session({secret: process.env.SECRET, resave: false, saveUninitialized: false }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // app.use(express.static(path.join(__dirname, 'public'))); //serve public files
 
 // Register routes (as middleware layer through express.Router())
