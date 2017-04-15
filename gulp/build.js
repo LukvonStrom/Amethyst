@@ -60,6 +60,11 @@ gulp.task('compile', false, () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('nsp', false, function(cb) {
+  let gulpNSP = require('gulp-nsp');
+  gulpNSP({package: '../package.json'}, cb)
+});
+
 /**
  * Build the server app
  */
@@ -68,6 +73,7 @@ gulp.task('build', 'Builds the server app (compiles & copies)', (callback) =>
               ['compile'],
               'copyNonTs',
               'todo',
+              'nsp',
               callback)
 );
 
