@@ -2,17 +2,19 @@
  * Created by Lukas on 11.04.2017.
  */
 import * as passport from 'passport';
-import * as LocalStrategy from 'passport-local';
+
 import * as UserManager from '../database/managers/UserManager';
+import {User} from "../database/entity/User";
+import {Strategy as LocalStrategy} from "passport-local";
 
 module AuthService {
     'use strict';
 
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser(function(user: User, done) {
         done(null, user.id);
     });
 
-    passport.deserializeUser(function(id, done) {
+    passport.deserializeUser(function(id :number, done) {
         // Den User anhand der ID finden und zurückgeben
         UserManager
             .getUserbyId(id)

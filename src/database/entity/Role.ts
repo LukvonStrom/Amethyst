@@ -17,7 +17,7 @@ export class Role {
     @Column()
     color: string;
 
-    @ManyToMany(type => Role, permission => permission.role)
+    @ManyToMany(type => Permission, permission => permission.roles)
     @JoinColumn()
     permissions: Permission[] = [];
 }
