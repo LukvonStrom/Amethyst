@@ -40,9 +40,13 @@ module AuthService {
                      return done(null, false);
                   }
 
-                  if (!UserManager.verifyPassword(user, password)) {
-                      return done(null, false);
-                  }
+                  // Not sure if this works
+
+                  UserManager.verifyPassword(user, password).then(res => {
+                      if (res !== true) {
+                          return done(null, false);
+                      }
+                  });
 
                   return done(null, user);
 
@@ -57,16 +61,16 @@ module AuthService {
         passReqToCallback: true
     },
         (req: Request, name: string, password: string, done) => {
-        UserManager
-        // This won't work, as an email is required too.
-        // TODO: Get the Email from Request body
-            .insertUser({name: name, password: password, email: req.body('email')})
-            .then(user => {
-                return done(null, user);
-            })
-            .catch(err => {
-                done(err);
-            });
+        UserManager.computeHash(password).then(hash => {
+            UserManager
+                .insertUser({name: name, password: hash, email: req.body('email')})
+                .then(user => {
+                    return done(null, user);
+                })
+                .catch(err => {
+                    done(err);
+                });
+        });
         }
         ));
 

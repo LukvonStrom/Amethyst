@@ -8,6 +8,7 @@
 import {EntityManager, getEntityManager, Repository} from 'typeorm';
 import {User} from '../entity/User';
 import * as SQLConnection from '../SQLConnection';
+import * as bcrypt from 'bcrypt';
 
 
 module UserManager {
@@ -61,9 +62,13 @@ module UserManager {
         }
     }
 
-    export function verifyPassword(user: User, password: string): Boolean {
-        // TODO: Implement Bcrypt
-        return true;
+    export function verifyPassword(user: User, password: string): Promise<Boolean> {
+        return bcrypt.compare(password, user.password);
+        }
+
+
+    export function computeHash(password): Promise<string> {
+        return bcrypt.hash(password, process.env.SALT_ROUNDS);
     }
 
 
