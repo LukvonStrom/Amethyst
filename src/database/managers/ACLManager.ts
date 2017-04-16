@@ -1,11 +1,16 @@
+/**
+ *
+ * This file is part of the Amethyst Project. Modification is on your own risk.
+ *
+ */
+'use strict';
+
 import {Role} from '../entity/Role';
 import {Permission} from '../entity/Permission';
 import {getEntityManager, Repository} from 'typeorm';
 import {User} from '../entity/User';
 import * as SQLConnection from '../SQLConnection';
-/**
- * Created by Lukas on 14.04.2017.
- */
+
 
 module ACLManager {
 

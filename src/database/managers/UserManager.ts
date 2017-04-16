@@ -1,11 +1,14 @@
+/**
+ *
+ * This file is part of the Amethyst Project. Modification is on your own risk.
+ *
+ */
+'use strict';
+
 import {EntityManager, getEntityManager, Repository} from 'typeorm';
 import {User} from '../entity/User';
 import * as SQLConnection from '../SQLConnection';
-import {Role} from '../entity/Role';
-import {Permission} from '../entity/Permission';
-/**
- * Created by Lukas on 14.04.2017.
- */
+
 
 module UserManager {
     function getUserRepository(): Promise<Repository<User>> {

@@ -1,11 +1,15 @@
 /**
- * Created by Lukas on 11.04.2017.
+ *
+ * This file is part of the Amethyst Project. Modification is on your own risk.
+ *
  */
+ 'use strict';
 import * as passport from 'passport';
 
 import * as UserManager from '../database/managers/UserManager';
 import {User} from '../database/entity/User';
 import {Strategy as LocalStrategy} from 'passport-local';
+import {Request} from 'express';
 
 module AuthService {
     'use strict';
@@ -52,11 +56,11 @@ module AuthService {
     passport.use('local-signup', new LocalStrategy({
         passReqToCallback: true
     },
-        (req, name, password, done) => {
+        (req: Request, name: string, password: string, done) => {
         UserManager
         // This won't work, as an email is required too.
         // TODO: Get the Email from Request body
-            .insertUser({name: name, password: password})
+            .insertUser({name: name, password: password, email: req.body('email')})
             .then(user => {
                 return done(null, user);
             })

@@ -1,9 +1,14 @@
+/**
+ *
+ * This file is part of the Amethyst Project. Modification is on your own risk.
+ *
+ */
+'use strict';
+
 import {getEntityManager, Repository} from 'typeorm';
 import {Order} from '../entity/Order';
 import * as SQLConnection from '../SQLConnection';
-/**
- * Created by Lukas on 14.04.2017.
- */
+
 
 module OrderManager {
 

@@ -4,6 +4,7 @@
  *
  */
  'use strict';
+
 // Test routes
 import { Router } from 'express';
 import { deliverSlogan } from '../controllers/RootController';

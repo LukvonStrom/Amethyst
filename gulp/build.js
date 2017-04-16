@@ -1,4 +1,9 @@
-'use strict';
+/**
+ *
+ * This file is part of the Amethyst Project. Modification is on your own risk.
+ *
+ */
+ 'use strict';
 
 //Dependencies
 let gulp = require('gulp'),

@@ -1,9 +1,12 @@
-import {Connection, createConnection, ObjectLiteral, Repository} from 'typeorm';
-import * as UserManager from './managers/UserManager';
-import {User} from './entity/User';
 /**
- * Created by Lukas on 14.04.2017.
+ *
+ * This file is part of the Amethyst Project. Modification is on your own risk.
+ *
  */
+'use strict';
+
+import {Connection, createConnection} from 'typeorm';
+
 
 module SQLConnection {
 
