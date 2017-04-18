@@ -17,6 +17,12 @@ export class Permission {
     @Column()
     name: string;
 
+    @Column()
+    method: string;
+
+    @Column()
+    originalUrl: string;
+
     @ManyToMany(type => Role, role => role.permissions)
     roles: Role[] = [];
 
