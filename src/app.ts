@@ -22,6 +22,7 @@ import * as rootRoute from './routes/root';
 // Error handler service
 import { development as DevelopmentErrorHandler, production as ProductionErrorHandler } from './services/errorHandler';
 import * as authService from './services/AuthService';
+import helmet = require("helmet");
 
 
 // Main app
@@ -41,6 +42,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express_session({secret: process.env.SECRET, resave: false, saveUninitialized: false }));
+app.use(helmet());
 
 app.use(passport.initialize());
 app.use(passport.session());
