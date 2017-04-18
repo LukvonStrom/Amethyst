@@ -51,7 +51,7 @@ module ACLManager {
         });
     }
 
-    export function getPermissionbyRole(id: number): Promise<Permission> {
+    export function getPermissionbyRole(id: number): Promise<Permission[]> {
         return new Promise((resolve, reject) => {
             this.getRoleRepository().then(repo => {
                resolve(
@@ -65,6 +65,7 @@ module ACLManager {
             });
         });
     }
+
 }
 
 export = ACLManager;

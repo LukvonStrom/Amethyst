@@ -17,18 +17,17 @@ import 'reflect-metadata';
 import * as passport from 'passport';
 
 // Modular Route definitions
-import * as rootRoute from './routes/root';
+import * as rootRoute from './routes/frontoffice';
 
 // Error handler service
 import { development as DevelopmentErrorHandler, production as ProductionErrorHandler } from './services/errorHandler';
-import * as authService from './services/AuthService';
-import helmet = require("helmet");
+import helmet = require('helmet');
+import {authorize} from './services/AuthorizationService';
+import {setupPassport} from './services/AuthentificationService';
 
 
 // Main app
 const app = express();
-
-const AuthService = authService;
 
 
 // TODO: Initialize Passport
@@ -46,6 +45,9 @@ app.use(helmet());
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(setupPassport);
+app.use(authorize);
 
 
 // app.use(express.static(path.join(__dirname, 'public'))); //serve public files
