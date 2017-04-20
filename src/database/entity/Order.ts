@@ -16,6 +16,9 @@ export class Order {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column()
+    notes: string;
+
     @OneToOne(type => User)
     @JoinColumn()
     user: User;
