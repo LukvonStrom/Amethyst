@@ -18,6 +18,9 @@ export class Product {
     @Column()
     name: string;
 
+    @Column()
+    shortname: string;
+
     @Column('text')
     description: string;
 
