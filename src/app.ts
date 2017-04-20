@@ -30,7 +30,7 @@ import {setupPassport} from './services/AuthentificationService';
 const app = express();
 
 
-// TODO: Initialize Passport
+
 // view engine setup
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -40,7 +40,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express_session({secret: process.env.SECRET, resave: false, saveUninitialized: false }));
+// TODO: Integrate FileStore / Redis Store
+app.use(express_session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false }));
 app.use(helmet());
 
 app.use(passport.initialize());

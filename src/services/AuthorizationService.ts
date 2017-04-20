@@ -26,6 +26,7 @@ module AuthorizationService {
             function searchPerm(permissions: Permission[]) {
                 if (permissions.find (findMatchingACLPerm) === undefined) {
                     res.status(403).send('Not allowed!');
+                    res.end();
                 }
             }
 

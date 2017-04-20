@@ -5,7 +5,7 @@
  */
 'use strict';
 
-import {Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from 'typeorm';
 import {Role} from './Role';
 
 @Entity()

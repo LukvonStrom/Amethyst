@@ -4,6 +4,7 @@
  *
  */
 'use strict';
+// TODO: Add Color, percentage
 
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
