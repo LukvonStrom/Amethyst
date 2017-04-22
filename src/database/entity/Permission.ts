@@ -7,9 +7,10 @@
 
 import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from 'typeorm';
 import {Role} from './Role';
+import IDatabaseEntity = require("./IDatabaseEntity");
 
 @Entity()
-export class Permission {
+export class Permission implements IDatabaseEntity.IDatabaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;

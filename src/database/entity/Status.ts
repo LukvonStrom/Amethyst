@@ -4,16 +4,22 @@
  *
  */
 'use strict';
-// TODO: Add Color, percentage
 
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import IDatabaseEntity = require("./IDatabaseEntity");
 
 @Entity()
-export class Status {
+export class Status implements IDatabaseEntity.IDatabaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
     name: String;
+
+    @Column()
+    percentage: number;
+
+    @Column()
+    color: number;
 }

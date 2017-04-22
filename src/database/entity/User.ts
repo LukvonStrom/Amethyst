@@ -7,12 +7,14 @@
 
 import {Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {Role} from './Role';
+import IDatabaseEntity = require("./IDatabaseEntity");
 
 @Entity()
-export class User {
+export class User implements IDatabaseEntity.IDatabaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
+
 
     @Column()
     name: string;

@@ -7,9 +7,10 @@
 
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {Category} from './Category';
+import IDatabaseEntity = require("./IDatabaseEntity");
 
 @Entity()
-export class Example {
+export class Example implements IDatabaseEntity.IDatabaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -23,6 +24,7 @@ export class Example {
 
     @Column()
     url: String;
+
 
 
     @ManyToOne(type => Category, category => category.examples)

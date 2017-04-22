@@ -9,9 +9,10 @@ import {Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGenerated
 import {User} from './User';
 import {Product} from './Product';
 import {Status} from './Status';
+import IDatabaseEntity = require("./IDatabaseEntity");
 
 @Entity()
-export class Order {
+export class Order implements IDatabaseEntity.IDatabaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number;
