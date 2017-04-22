@@ -8,7 +8,7 @@
 import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {Category} from './Category';
 import {Example} from './Example';
-import IDatabaseEntity = require("./IDatabaseEntity");
+import IDatabaseEntity = require('./IDatabaseEntity');
 
 @Entity()
 export class Product implements IDatabaseEntity.IDatabaseEntity {

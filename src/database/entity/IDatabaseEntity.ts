@@ -5,7 +5,7 @@
  */
  'use strict';
 
-module DatabaseInterface{
+module DatabaseInterface {
     export interface IDatabaseEntity {
 
 

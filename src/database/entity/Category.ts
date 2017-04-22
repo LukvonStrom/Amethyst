@@ -7,7 +7,7 @@
 
 import {Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 import {Example} from './Example';
-import IDatabaseEntity = require("./IDatabaseEntity");
+import IDatabaseEntity = require('./IDatabaseEntity');
 
 @Entity()
 export class Category implements IDatabaseEntity.IDatabaseEntity {

@@ -6,7 +6,7 @@
 'use strict';
 
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
-import IDatabaseEntity = require("./IDatabaseEntity");
+import IDatabaseEntity = require('./IDatabaseEntity');
 
 @Entity()
 export class Status implements IDatabaseEntity.IDatabaseEntity {
